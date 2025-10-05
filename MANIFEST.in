@@ -1,0 +1,12 @@
+recursive-include coma *.css
+recursive-include coma *.csv
+recursive-include coma *.html
+recursive-include coma *.ico
+recursive-include coma *.js
+recursive-include coma *.json
+recursive-include coma *.md
+recursive-include coma *.png
+recursive-include coma *.py
+recursive-include coma *.svg
+recursive-include coma *.txt
+recursive-exclude coma *.pyc
