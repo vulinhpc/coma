@@ -1,0 +1,159 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "autoname": "prompt",
+  "creation": "2025-10-06 11:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "basic_info",
+    "project",
+    "category_name",
+    "column_break_1",
+    "sort_order",
+    "status",
+    "timeline",
+    "planned_start",
+    "planned_end",
+    "progress",
+    "progress_weight",
+    "progress_percentage",
+    "notes_section",
+    "notes"
+  ],
+  "fields": [
+    {
+      "columns": 2,
+      "fieldname": "basic_info",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "project",
+      "fieldtype": "Link",
+      "label": "Project",
+      "options": "Project",
+      "reqd": 1
+    },
+    {
+      "fieldname": "category_name",
+      "fieldtype": "Data",
+      "label": "Category Name",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "default": "0",
+      "fieldname": "sort_order",
+      "fieldtype": "Int",
+      "label": "Sort Order"
+    },
+    {
+      "default": "Not Started",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "label": "Status",
+      "options": "Not Started\nIn Progress\nCompleted",
+      "reqd": 1
+    },
+    {
+      "columns": 2,
+      "fieldname": "timeline",
+      "fieldtype": "Section Break",
+      "label": "Timeline"
+    },
+    {
+      "fieldname": "planned_start",
+      "fieldtype": "Date",
+      "label": "Planned Start"
+    },
+    {
+      "fieldname": "planned_end",
+      "fieldtype": "Date",
+      "label": "Planned End"
+    },
+    {
+      "columns": 2,
+      "fieldname": "progress",
+      "fieldtype": "Section Break",
+      "label": "Progress"
+    },
+    {
+      "default": "0",
+      "fieldname": "progress_weight",
+      "fieldtype": "Float",
+      "label": "Progress Weight (%)",
+      "precision": 2
+    },
+    {
+      "default": "0",
+      "fieldname": "progress_percentage",
+      "fieldtype": "Percent",
+      "label": "Progress Percentage",
+      "precision": 2,
+      "read_only": 1
+    },
+    {
+      "fieldname": "notes_section",
+      "fieldtype": "Section Break",
+      "label": "Notes"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "is_submittable": 0,
+  "links": [],
+  "modified": "2025-10-06 11:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Coma",
+  "name": "Category",
+  "naming_rule": "By fieldname",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Projects Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "print": 1,
+      "read": 1,
+      "role": "Projects User",
+      "share": 1,
+      "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [],
+  "title_field": "category_name",
+  "track_changes": 1
+}
+

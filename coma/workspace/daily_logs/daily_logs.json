@@ -1,0 +1,11 @@
+{
+  "doctype": "Workspace",
+  "name": "daily-logs",
+  "title": "Daily Logs",
+  "public": 1,
+  "module": "COMA",
+  "icon": "octicon octicon-calendar",
+  "shortcuts": [
+    {"link_to": "Daily Log", "type": "DocType"}
+  ]
+}

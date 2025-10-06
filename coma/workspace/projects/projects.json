@@ -1,0 +1,13 @@
+{
+  "doctype": "Workspace",
+  "name": "projects",
+  "title": "Projects",
+  "public": 1,
+  "module": "COMA",
+  "icon": "octicon octicon-briefcase",
+  "shortcuts": [
+    {"link_to": "Project", "type": "DocType"},
+    {"link_to": "Category", "type": "DocType"},
+    {"link_to": "Task", "type": "DocType"}
+  ]
+}

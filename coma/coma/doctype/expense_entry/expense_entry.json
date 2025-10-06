@@ -1,0 +1,220 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "autoname": "format:EXP-.YYYY.-.####",
+  "creation": "2025-10-06 11:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "basic_info",
+    "project",
+    "entry_date",
+    "column_break_1",
+    "entry_type",
+    "category_type",
+    "amount_section",
+    "amount",
+    "description",
+    "documents",
+    "receipt_image",
+    "additional_info",
+    "paid_by",
+    "notes",
+    "approval",
+    "approved_by"
+  ],
+  "fields": [
+    {
+      "columns": 2,
+      "fieldname": "basic_info",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "project",
+      "fieldtype": "Link",
+      "label": "Project",
+      "options": "Project",
+      "reqd": 1
+    },
+    {
+      "default": "Today",
+      "fieldname": "entry_date",
+      "fieldtype": "Date",
+      "label": "Entry Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "entry_type",
+      "fieldtype": "Select",
+      "label": "Entry Type",
+      "options": "Income\nExpense",
+      "reqd": 1
+    },
+    {
+      "fieldname": "category_type",
+      "fieldtype": "Select",
+      "label": "Category Type",
+      "options": "Labor\nMaterial\nEquipment\nTransportation\nOffice Supplies\nUtilities\nProfessional Fees\nOther",
+      "reqd": 1
+    },
+    {
+      "columns": 2,
+      "fieldname": "amount_section",
+      "fieldtype": "Section Break",
+      "label": "Amount"
+    },
+    {
+      "fieldname": "amount",
+      "fieldtype": "Currency",
+      "label": "Amount",
+      "reqd": 1
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Small Text",
+      "label": "Description",
+      "reqd": 1
+    },
+    {
+      "fieldname": "documents",
+      "fieldtype": "Section Break",
+      "label": "Supporting Documents"
+    },
+    {
+      "fieldname": "receipt_image",
+      "fieldtype": "Attach Image",
+      "label": "Receipt Image"
+    },
+    {
+      "columns": 2,
+      "fieldname": "additional_info",
+      "fieldtype": "Section Break",
+      "label": "Additional Info"
+    },
+    {
+      "fieldname": "paid_by",
+      "fieldtype": "Link",
+      "label": "Paid By",
+      "options": "User"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    },
+    {
+      "columns": 2,
+      "fieldname": "approval",
+      "fieldtype": "Section Break",
+      "label": "Approval"
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Link",
+      "label": "Approved By",
+      "options": "User",
+      "read_only": 1
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2025-10-06 11:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Coma",
+  "name": "Expense Entry",
+  "naming_rule": "By fieldname",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "amend": 1,
+      "cancel": 1,
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "amend": 1,
+      "cancel": 1,
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Projects Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "amend": 1,
+      "cancel": 1,
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Accounts Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "print": 1,
+      "read": 1,
+      "role": "Projects User",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [
+    {
+      "action": "Submit",
+      "doc_status": 0,
+      "is_optional_state": 0,
+      "next_action": "Cancel",
+      "next_state": "Submitted",
+      "state": "Draft"
+    },
+    {
+      "action": "Cancel",
+      "doc_status": 1,
+      "is_optional_state": 0,
+      "next_action": "Submit",
+      "next_state": "Cancelled",
+      "state": "Submitted"
+    },
+    {
+      "action": "Submit",
+      "doc_status": 1,
+      "is_optional_state": 0,
+      "next_action": "Cancel",
+      "next_state": "Submitted",
+      "state": "Cancelled"
+    }
+  ],
+  "track_changes": 1
+}
+

@@ -1,0 +1,12 @@
+{
+  "doctype": "Workspace",
+  "name": "reports",
+  "title": "Reports",
+  "public": 1,
+  "module": "COMA",
+  "icon": "octicon octicon-repo-push",
+  "shortcuts": [
+    {"link_to": "Project Progress Report", "type": "Report"},
+    {"link_to": "Project Expense Report", "type": "Report"}
+  ]
+}
