@@ -1,0 +1,234 @@
+{
+  "actions": [],
+  "allow_rename": 1,
+  "autoname": "format:LOG-.YYYY.-.MM.-.DD.-.####",
+  "creation": "2025-10-06 11:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "basic_info",
+    "project",
+    "category",
+    "task",
+    "date_time",
+    "log_date",
+    "shift",
+    "work_description",
+    "work_description",
+    "photos_section",
+    "photos",
+    "additional_info",
+    "weather",
+    "notes",
+    "workflow_info",
+    "created_by",
+    "submitted_at",
+    "column_break_workflow",
+    "approved_by",
+    "approved_at"
+  ],
+  "fields": [
+    {
+      "columns": 3,
+      "fieldname": "basic_info",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "project",
+      "fieldtype": "Link",
+      "label": "Project",
+      "options": "Project",
+      "reqd": 1
+    },
+    {
+      "fieldname": "category",
+      "fieldtype": "Link",
+      "label": "Category",
+      "options": "Category",
+      "reqd": 1
+    },
+    {
+      "fieldname": "task",
+      "fieldtype": "Link",
+      "label": "Task",
+      "options": "Task",
+      "reqd": 1
+    },
+    {
+      "columns": 2,
+      "fieldname": "date_time",
+      "fieldtype": "Section Break",
+      "label": "Date & Time"
+    },
+    {
+      "default": "Today",
+      "fieldname": "log_date",
+      "fieldtype": "Date",
+      "label": "Log Date",
+      "reqd": 1
+    },
+    {
+      "fieldname": "shift",
+      "fieldtype": "Select",
+      "label": "Shift",
+      "options": "Morning\nAfternoon\nFull Day"
+    },
+    {
+      "fieldname": "work_description",
+      "fieldtype": "Section Break",
+      "label": "Work Description"
+    },
+    {
+      "fieldname": "work_description",
+      "fieldtype": "Text Editor",
+      "label": "Work Description",
+      "reqd": 1
+    },
+    {
+      "fieldname": "photos_section",
+      "fieldtype": "Section Break",
+      "label": "Photos"
+    },
+    {
+      "fieldname": "photos",
+      "fieldtype": "Table",
+      "label": "Photos",
+      "options": "Daily Log Photo"
+    },
+    {
+      "columns": 2,
+      "fieldname": "additional_info",
+      "fieldtype": "Section Break",
+      "label": "Additional Info"
+    },
+    {
+      "fieldname": "weather",
+      "fieldtype": "Select",
+      "label": "Weather",
+      "options": "Sunny\nRainy\nCloudy\nStormy"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    },
+    {
+      "columns": 2,
+      "fieldname": "workflow_info",
+      "fieldtype": "Section Break",
+      "label": "Workflow Info"
+    },
+    {
+      "fieldname": "created_by",
+      "fieldtype": "Link",
+      "label": "Created By",
+      "options": "User",
+      "read_only": 1
+    },
+    {
+      "fieldname": "submitted_at",
+      "fieldtype": "Datetime",
+      "label": "Submitted At",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_workflow",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "approved_by",
+      "fieldtype": "Link",
+      "label": "Approved By",
+      "options": "User",
+      "read_only": 1
+    },
+    {
+      "fieldname": "approved_at",
+      "fieldtype": "Datetime",
+      "label": "Approved At",
+      "read_only": 1
+    }
+  ],
+  "index_web_pages_for_search": 1,
+  "is_submittable": 1,
+  "links": [],
+  "modified": "2025-10-06 11:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Coma",
+  "name": "Daily Log",
+  "naming_rule": "By fieldname",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "amend": 1,
+      "cancel": 1,
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "System Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "amend": 1,
+      "cancel": 1,
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Projects Manager",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "email": 1,
+      "print": 1,
+      "read": 1,
+      "role": "Projects User",
+      "share": 1,
+      "submit": 1,
+      "write": 1
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "states": [
+    {
+      "action": "Submit",
+      "doc_status": 0,
+      "is_optional_state": 0,
+      "next_action": "Cancel",
+      "next_state": "Submitted",
+      "state": "Draft"
+    },
+    {
+      "action": "Cancel",
+      "doc_status": 1,
+      "is_optional_state": 0,
+      "next_action": "Submit",
+      "next_state": "Cancelled",
+      "state": "Submitted"
+    },
+    {
+      "action": "Submit",
+      "doc_status": 1,
+      "is_optional_state": 0,
+      "next_action": "Cancel",
+      "next_state": "Submitted",
+      "state": "Cancelled"
+    }
+  ],
+  "track_changes": 1
+}
+

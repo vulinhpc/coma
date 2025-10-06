@@ -1,0 +1,12 @@
+{
+  "doctype": "Workspace",
+  "name": "finance",
+  "title": "Finance",
+  "public": 1,
+  "module": "COMA",
+  "icon": "octicon octicon-graph",
+  "shortcuts": [
+    {"link_to": "Expense Entry", "type": "DocType"},
+    {"link_to": "Project Expense Report", "type": "Report"}
+  ]
+}

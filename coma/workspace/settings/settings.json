@@ -1,0 +1,13 @@
+{
+  "doctype": "Workspace",
+  "name": "settings",
+  "title": "Settings",
+  "public": 1,
+  "module": "COMA",
+  "icon": "octicon octicon-tools",
+  "shortcuts": [
+    {"link_to": "User", "type": "DocType"},
+    {"link_to": "Role", "type": "DocType"},
+    {"link_to": "Permission", "type": "DocType"}
+  ]
+}

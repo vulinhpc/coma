@@ -1,0 +1,15 @@
+{
+  "doctype": "Workspace",
+  "name": "construction-management",
+  "title": "Construction Management",
+  "public": 1,
+  "module": "COMA",
+  "icon": "fa fa-building",
+  "shortcuts": [
+    {"link_to": "Project", "type": "DocType"},
+    {"link_to": "Category", "type": "DocType"},
+    {"link_to": "Task", "type": "DocType"},
+    {"link_to": "Daily Log", "type": "DocType"},
+    {"link_to": "Expense Entry", "type": "DocType"}
+  ]
+}

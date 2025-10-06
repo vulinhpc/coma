@@ -242,3 +242,26 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+# Fixtures
+fixtures = [
+    {"doctype": "Workspace", "filters": [["module", "=", "COMA"]]},
+]
+
+# Document Events
+doc_events = {
+    "Task": {
+        "validate": "coma.services.validators.validate_task_weight"
+    },
+    "Category": {
+        "validate": "coma.services.validators.validate_category_weight"
+    },
+    "Daily Log": {
+        "before_save": "coma.services.daily_log_handlers.before_save_daily_log",
+        "on_submit": "coma.services.daily_log_handlers.on_submit_daily_log"
+    },
+    "Expense Entry": {
+        "on_submit": "coma.services.expense_calculator.on_submit_expense",
+        "on_cancel": "coma.services.expense_calculator.on_cancel_expense"
+    }
+}
+
