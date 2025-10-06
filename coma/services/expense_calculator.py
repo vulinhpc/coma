@@ -71,10 +71,10 @@ def on_submit_expense(doc, method):
         method: Method name (on_submit)
     """
     if doc.project:
+        result = calculate_project_expense(doc.project)
         project = frappe.get_doc('Project', doc.project)
-        update_project_expense(project)
-        project.db_update()
-        frappe.db.commit()
+        project.total_expense = result['net_expense']
+        project.save()
 
 
 def on_cancel_expense(doc, method):
@@ -87,8 +87,8 @@ def on_cancel_expense(doc, method):
         method: Method name (on_cancel)
     """
     if doc.project:
+        result = calculate_project_expense(doc.project)
         project = frappe.get_doc('Project', doc.project)
-        update_project_expense(project)
-        project.db_update()
-        frappe.db.commit()
+        project.total_expense = result['net_expense']
+        project.save()
 

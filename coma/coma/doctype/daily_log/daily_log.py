@@ -5,5 +5,7 @@ import frappe
 from frappe.model.document import Document
 
 class DailyLog(Document):
-    pass
+    def autoname(self):
+        if not self.name:
+            self.name = f"LOG-{frappe.utils.now_datetime().strftime('%Y%m%d%H%M%S')}"
 

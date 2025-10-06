@@ -89,27 +89,78 @@ def get_columns():
 
 
 def get_data(filters):
-    """Get report data"""
-    conditions = get_conditions(filters)
+    """Get report data using Frappe ORM"""
+    # Get projects first
+    project_filters = {}
+    if filters.get('project'):
+        project_filters['name'] = filters.get('project')
+    if filters.get('status'):
+        project_filters['status'] = filters.get('status')
     
-    data = frappe.db.sql(f"""
-        SELECT
-            p.name as project,
-            p.status as project_status,
-            c.name as category,
-            c.progress_weight as category_weight,
-            c.progress_percentage as category_progress,
-            t.name as task,
-            t.task_weight as task_weight,
-            t.status as task_status,
-            t.progress_percentage as task_progress,
-            t.assignee
-        FROM `tabProject` p
-        LEFT JOIN `tabCategory` c ON c.project = p.name
-        LEFT JOIN `tabTask` t ON t.category = c.name
-        WHERE 1=1 {conditions}
-        ORDER BY p.name, c.sort_order, t.sort_order
-    """, as_dict=1)
+    projects = frappe.get_all(
+        'Project',
+        filters=project_filters,
+        fields=['name', 'status'],
+        order_by='name'
+    )
+    
+    data = []
+    
+    for project in projects:
+        # Get categories for this project
+        category_filters = {'project': project.name}
+        if filters.get('category'):
+            category_filters['name'] = filters.get('category')
+        
+        categories = frappe.get_all(
+            'Category',
+            filters=category_filters,
+            fields=['name', 'progress_weight', 'progress_percentage', 'sort_order'],
+            order_by='sort_order'
+        )
+        
+        for category in categories:
+            # Get tasks for this category
+            task_filters = {'category': category.name}
+            if filters.get('task_status'):
+                task_filters['status'] = filters.get('task_status')
+            
+            tasks = frappe.get_all(
+                'Task',
+                filters=task_filters,
+                fields=['name', 'task_weight', 'status', 'progress_percentage', 'assignee', 'sort_order'],
+                order_by='sort_order'
+            )
+            
+            if tasks:
+                # Add task rows
+                for task in tasks:
+                    data.append({
+                        'project': project.name,
+                        'project_status': project.status,
+                        'category': category.name,
+                        'category_weight': category.progress_weight,
+                        'category_progress': category.progress_percentage,
+                        'task': task.name,
+                        'task_weight': task.task_weight,
+                        'task_status': task.status,
+                        'task_progress': task.progress_percentage,
+                        'assignee': task.assignee
+                    })
+            else:
+                # Add category row without tasks
+                data.append({
+                    'project': project.name,
+                    'project_status': project.status,
+                    'category': category.name,
+                    'category_weight': category.progress_weight,
+                    'category_progress': category.progress_percentage,
+                    'task': None,
+                    'task_weight': None,
+                    'task_status': None,
+                    'task_progress': None,
+                    'assignee': None
+                })
     
     return data
 

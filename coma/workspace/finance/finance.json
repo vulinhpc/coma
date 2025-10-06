@@ -8,5 +8,25 @@
   "shortcuts": [
     {"link_to": "Expense Entry", "type": "DocType"},
     {"link_to": "Project Expense Report", "type": "Report"}
+  ],
+  "content": [
+    {
+      "type": "Header",
+      "label": "💰 Financial Overview"
+    },
+    {
+      "type": "Chart",
+      "chart_name": "Expense Summary Chart"
+    },
+    {
+      "type": "Chart",
+      "chart_name": "Budget Overview Chart"
+    },
+    {
+      "type": "Shortcut",
+      "label": "➕ Add Expense",
+      "link_to": "Expense Entry",
+      "doctype": "DocType"
+    }
   ]
 }

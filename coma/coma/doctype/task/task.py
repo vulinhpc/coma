@@ -38,4 +38,4 @@ class Task(Document):
                     project.db_update()
             
             # Commit changes
-            frappe.db.commit()
+            # Note: frappe.db.commit() removed as it's not needed for save operations

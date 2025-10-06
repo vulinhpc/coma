@@ -13,16 +13,29 @@ def get_my_projects():
     Returns:
         list: Projects with basic info
     """
-    projects = frappe.db.sql("""
-        SELECT DISTINCT 
-            p.name, p.project_name, p.project_code,
-            p.client_name, p.status, p.progress_percentage,
-            p.start_date, p.end_date, p.cover_image
-        FROM `tabProject` p
-        INNER JOIN `tabProject Team Member` ptm ON ptm.parent = p.name
-        WHERE ptm.user = %s
-        ORDER BY p.modified DESC
-    """, (frappe.session.user,), as_dict=True)
+    # Get team members first
+    team_members = frappe.get_all(
+        'Project Team Member',
+        filters={'user': frappe.session.user},
+        fields=['parent'],
+        order_by='modified DESC'
+    )
+    
+    project_names = [tm.parent for tm in team_members]
+    
+    if project_names:
+        projects = frappe.get_all(
+            'Project',
+            filters={'name': ['in', project_names]},
+            fields=[
+                'name', 'project_name', 'project_code',
+                'client_name', 'status', 'progress_percentage',
+                'start_date', 'end_date', 'cover_image'
+            ],
+            order_by='modified DESC'
+        )
+    else:
+        projects = []
     
     return projects
 
@@ -296,11 +309,15 @@ def has_project_access(project_id):
     if frappe.session.user == 'Administrator':
         return True
     
-    # Check if user is team member
-    member = frappe.db.exists('Project Team Member', {
-        'parent': project_id,
-        'user': frappe.session.user
-    })
+    # Check if user is team member using Frappe ORM
+    members = frappe.get_all(
+        'Project Team Member',
+        filters={
+            'parent': project_id,
+            'user': frappe.session.user
+        },
+        limit=1
+    )
     
-    return bool(member)
+    return len(members) > 0
 

@@ -9,5 +9,27 @@
     {"link_to": "Project", "type": "DocType"},
     {"link_to": "Category", "type": "DocType"},
     {"link_to": "Task", "type": "DocType"}
+  ],
+  "content": [
+    {
+      "type": "Header",
+      "label": "📁 Projects Dashboard"
+    },
+    {
+      "type": "Shortcut",
+      "label": "➕ Create Project",
+      "link_to": "Project",
+      "doctype": "DocType"
+    },
+    {
+      "type": "Shortcut",
+      "label": "📋 View All Tasks",
+      "link_to": "Task",
+      "doctype": "DocType"
+    },
+    {
+      "type": "Chart",
+      "chart_name": "Project Progress Chart"
+    }
   ]
 }

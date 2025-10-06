@@ -63,7 +63,7 @@ def logout():
         dict: {'message': 'Logged out'}
     """
     frappe.local.login_manager.logout()
-    frappe.db.commit()
+    # Note: frappe.db.commit() removed as it's not needed for logout
     
     return {'message': 'Logged out'}
 
@@ -82,14 +82,25 @@ def get_user_profile():
     """
     user = frappe.get_doc('User', frappe.session.user)
     
-    # Get projects where user is a team member
-    projects = frappe.db.sql("""
-        SELECT DISTINCT p.name, p.project_name, p.status, p.cover_image
-        FROM `tabProject` p
-        INNER JOIN `tabProject Team Member` ptm ON ptm.parent = p.name
-        WHERE ptm.user = %s
-        ORDER BY p.modified DESC
-    """, (frappe.session.user,), as_dict=True)
+    # Get projects where user is a team member using Frappe ORM
+    team_members = frappe.get_all(
+        'Project Team Member',
+        filters={'user': frappe.session.user},
+        fields=['parent'],
+        order_by='modified DESC'
+    )
+    
+    project_names = [tm.parent for tm in team_members]
+    
+    if project_names:
+        projects = frappe.get_all(
+            'Project',
+            filters={'name': ['in', project_names]},
+            fields=['name', 'project_name', 'status', 'cover_image'],
+            order_by='modified DESC'
+        )
+    else:
+        projects = []
     
     return {
         'user': user.email,

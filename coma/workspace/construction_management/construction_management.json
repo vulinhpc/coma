@@ -4,12 +4,42 @@
   "title": "Construction Management",
   "public": 1,
   "module": "COMA",
-  "icon": "fa fa-building",
+  "icon": "octicon octicon-briefcase",
   "shortcuts": [
     {"link_to": "Project", "type": "DocType"},
     {"link_to": "Category", "type": "DocType"},
     {"link_to": "Task", "type": "DocType"},
     {"link_to": "Daily Log", "type": "DocType"},
     {"link_to": "Expense Entry", "type": "DocType"}
+  ],
+  "content": [
+    {
+      "type": "Header",
+      "label": "🏗️ Project Overview"
+    },
+    {
+      "type": "Section",
+      "columns": 2,
+      "content": [
+        {"type": "Chart", "chart_name": "Project Progress Chart"},
+        {"type": "Chart", "chart_name": "Expense Summary Chart"}
+      ]
+    },
+    {
+      "type": "Header",
+      "label": "🧾 Quick Actions"
+    },
+    {
+      "type": "Shortcut",
+      "label": "Manage Projects",
+      "link_to": "Project",
+      "doctype": "DocType"
+    },
+    {
+      "type": "Shortcut",
+      "label": "View Reports",
+      "link_to": "Project Progress Report",
+      "doctype": "Report"
+    }
   ]
 }

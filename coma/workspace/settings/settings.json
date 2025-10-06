@@ -7,7 +7,28 @@
   "icon": "octicon octicon-tools",
   "shortcuts": [
     {"link_to": "User", "type": "DocType"},
-    {"link_to": "Role", "type": "DocType"},
-    {"link_to": "Permission", "type": "DocType"}
+    {"link_to": "Role", "type": "DocType"}
+  ],
+  "content": [
+    {
+      "type": "Header",
+      "label": "⚙️ Settings & Permissions"
+    },
+    {
+      "type": "Shortcut",
+      "label": "Manage Users",
+      "link_to": "User",
+      "doctype": "DocType"
+    },
+    {
+      "type": "Shortcut",
+      "label": "Manage Roles",
+      "link_to": "Role",
+      "doctype": "DocType"
+    },
+    {
+      "type": "Chart",
+      "chart_name": "User Activity Chart"
+    }
   ]
 }

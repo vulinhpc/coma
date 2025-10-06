@@ -71,22 +71,42 @@ def get_columns():
 
 
 def get_data(filters):
-    """Get report data"""
-    conditions = get_conditions(filters)
+    """Get report data using Frappe ORM"""
+    # Build filters for frappe.get_all
+    report_filters = {'docstatus': 1}
     
-    data = frappe.db.sql(f"""
-        SELECT
-            ee.project,
-            ee.entry_date,
-            ee.entry_type,
-            ee.category_type,
-            ee.amount,
-            ee.description,
-            ee.paid_by
-        FROM `tabExpense Entry` ee
-        WHERE ee.docstatus = 1 {conditions}
-        ORDER BY ee.entry_date DESC
-    """, as_dict=1)
+    if filters.get('project'):
+        report_filters['project'] = filters.get('project')
+    
+    if filters.get('entry_type'):
+        report_filters['entry_type'] = filters.get('entry_type')
+    
+    if filters.get('category_type'):
+        report_filters['category_type'] = filters.get('category_type')
+    
+    if filters.get('from_date'):
+        report_filters['entry_date'] = ['>=', filters.get('from_date')]
+    
+    if filters.get('to_date'):
+        if 'entry_date' in report_filters and isinstance(report_filters['entry_date'], list):
+            report_filters['entry_date'].extend(['<=', filters.get('to_date')])
+        else:
+            report_filters['entry_date'] = ['<=', filters.get('to_date')]
+    
+    data = frappe.get_all(
+        'Expense Entry',
+        filters=report_filters,
+        fields=[
+            'project',
+            'entry_date',
+            'entry_type',
+            'category_type',
+            'amount',
+            'description',
+            'paid_by'
+        ],
+        order_by='entry_date DESC'
+    )
     
     return data
 

@@ -7,5 +7,21 @@
   "icon": "octicon octicon-calendar",
   "shortcuts": [
     {"link_to": "Daily Log", "type": "DocType"}
+  ],
+  "content": [
+    {
+      "type": "Header",
+      "label": "📅 Daily Logs Overview"
+    },
+    {
+      "type": "Shortcut",
+      "label": "➕ Create Daily Log",
+      "link_to": "Daily Log",
+      "doctype": "DocType"
+    },
+    {
+      "type": "Chart",
+      "chart_name": "Daily Log Activity Chart"
+    }
   ]
 }

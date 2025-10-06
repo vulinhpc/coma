@@ -5,5 +5,7 @@ import frappe
 from frappe.model.document import Document
 
 class ExpenseEntry(Document):
-    pass
+    def autoname(self):
+        if not self.name:
+            self.name = f"EXP-{frappe.utils.now_datetime().strftime('%Y%m%d%H%M%S')}"
 

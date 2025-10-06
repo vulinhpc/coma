@@ -9,7 +9,8 @@ import frappe
 def check_doctypes():
     print("=== Kiểm tra DocTypes trong database ===")
     print("DocTypes trong module COMA:")
-    result = frappe.db.sql("SELECT name FROM `tabDocType` WHERE module='COMA'")
+    # Use Frappe ORM instead of direct SQL
+    result = frappe.get_all("DocType", filters={"module": "COMA"}, fields=["name"])
     print(result)
 
     print("\n=== Kiểm tra bằng get_all ===")

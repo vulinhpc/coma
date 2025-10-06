@@ -8,5 +8,25 @@
   "shortcuts": [
     {"link_to": "Project Progress Report", "type": "Report"},
     {"link_to": "Project Expense Report", "type": "Report"}
+  ],
+  "content": [
+    {
+      "type": "Header",
+      "label": "📊 Reports & Analytics"
+    },
+    {
+      "type": "Chart",
+      "chart_name": "Project Progress Chart"
+    },
+    {
+      "type": "Chart",
+      "chart_name": "Expense Summary Chart"
+    },
+    {
+      "type": "Shortcut",
+      "label": "Open Project Report",
+      "link_to": "Project Progress Report",
+      "doctype": "Report"
+    }
   ]
 }
