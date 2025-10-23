@@ -1,5 +1,5 @@
-import { defineConfig } from 'checkly';
-import { EmailAlertChannel, Frequency } from 'checkly/constructs';
+import { defineConfig } from "checkly";
+import { EmailAlertChannel, Frequency } from "checkly/constructs";
 
 const sendDefaults = {
   sendFailure: true,
@@ -8,40 +8,40 @@ const sendDefaults = {
 };
 
 // FIXME: Add your production URL
-const productionURL = 'https://react-saas.com';
+const productionURL = "https://react-saas.com";
 
-const emailChannel = new EmailAlertChannel('email-channel-1', {
+const emailChannel = new EmailAlertChannel("email-channel-1", {
   // FIXME: add your own email address, Checkly will send you an email notification if a check fails
-  address: 'contact@creativedesignsguru.com',
+  address: "contact@creativedesignsguru.com",
   ...sendDefaults,
 });
 
 export const config = defineConfig({
   // FIXME: Add your own project name, logical ID, and repository URL
-  projectName: 'SaaS Boilerplate',
-  logicalId: 'saas-boilerplate',
-  repoUrl: 'https://github.com/ixartz/Next-js-Boilerplate',
+  projectName: "SaaS Boilerplate",
+  logicalId: "saas-boilerplate",
+  repoUrl: "https://github.com/ixartz/Next-js-Boilerplate",
   checks: {
-    locations: ['us-east-1', 'eu-west-1'],
-    tags: ['website'],
-    runtimeId: '2024.02',
+    locations: ["us-east-1", "eu-west-1"],
+    tags: ["website"],
+    runtimeId: "2024.02",
     browserChecks: {
       frequency: Frequency.EVERY_24H,
-      testMatch: '**/tests/e2e/**/*.check.e2e.ts',
+      testMatch: "**/tests/e2e/**/*.check.e2e.ts",
       alertChannels: [emailChannel],
     },
     playwrightConfig: {
       use: {
         baseURL: process.env.ENVIRONMENT_URL || productionURL,
         extraHTTPHeaders: {
-          'x-vercel-protection-bypass': process.env.VERCEL_BYPASS_TOKEN,
+          "x-vercel-protection-bypass": process.env.VERCEL_BYPASS_TOKEN,
         },
       },
     },
   },
   cli: {
-    runLocation: 'eu-west-1',
-    reporters: ['list'],
+    runLocation: "eu-west-1",
+    reporters: ["list"],
   },
 });
 

@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { Background } from './Background';
+import { Background } from "./Background";
 
 const meta = {
-  title: 'Components/Background',
+  title: "Components/Background",
   component: Background,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Background>;
 
 export default meta;
@@ -22,7 +22,7 @@ export const DefaultBackgroundWithChildren = {
 
 export const RedBackgroundWithChildren = {
   args: {
-    className: 'bg-red-500',
+    className: "bg-red-500",
     children: <div>Children node</div>,
   },
 } satisfies Story;

@@ -1,12 +1,8 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
-import {
-  type NextFetchEvent,
-  type NextRequest,
-  NextResponse,
-} from 'next/server';
-import createMiddleware from 'next-intl/middleware';
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { type NextFetchEvent, type NextRequest, NextResponse } from "next/server";
+import createMiddleware from "next-intl/middleware";
 
-import { AllLocales, AppConfig } from './utils/AppConfig';
+import { AllLocales, AppConfig } from "./utils/AppConfig";
 
 const intlMiddleware = createMiddleware({
   locales: AllLocales,
@@ -15,27 +11,23 @@ const intlMiddleware = createMiddleware({
 });
 
 const isProtectedRoute = createRouteMatcher([
-  '/dashboard(.*)',
-  '/:locale/dashboard(.*)',
-  '/onboarding(.*)',
-  '/:locale/onboarding(.*)',
-  '/api(.*)',
-  '/:locale/api(.*)',
+  "/dashboard(.*)",
+  "/:locale/dashboard(.*)",
+  "/onboarding(.*)",
+  "/:locale/onboarding(.*)",
+  "/api(.*)",
+  "/:locale/api(.*)",
 ]);
 
-export default function middleware(
-  request: NextRequest,
-  event: NextFetchEvent,
-) {
+export default function middleware(request: NextRequest, event: NextFetchEvent) {
   if (
-    request.nextUrl.pathname.includes('/sign-in')
-    || request.nextUrl.pathname.includes('/sign-up')
-    || isProtectedRoute(request)
+    request.nextUrl.pathname.includes("/sign-in") ||
+    request.nextUrl.pathname.includes("/sign-up") ||
+    isProtectedRoute(request)
   ) {
     return clerkMiddleware(async (auth, req) => {
       if (isProtectedRoute(req)) {
-        const locale
-          = req.nextUrl.pathname.match(/(\/.*)\/dashboard/)?.at(1) ?? '';
+        const locale = req.nextUrl.pathname.match(/(\/.*)\/dashboard/)?.at(1) ?? "";
 
         const signInUrl = new URL(`${locale}/sign-in`, req.url);
 
@@ -48,15 +40,12 @@ export default function middleware(
       const authObj = await auth();
 
       if (
-        authObj.userId
-        && !authObj.orgId
-        && req.nextUrl.pathname.includes('/dashboard')
-        && !req.nextUrl.pathname.endsWith('/organization-selection')
+        authObj.userId &&
+        !authObj.orgId &&
+        req.nextUrl.pathname.includes("/dashboard") &&
+        !req.nextUrl.pathname.endsWith("/organization-selection")
       ) {
-        const orgSelection = new URL(
-          '/onboarding/organization-selection',
-          req.url,
-        );
+        const orgSelection = new URL("/onboarding/organization-selection", req.url);
 
         return NextResponse.redirect(orgSelection);
       }
@@ -69,5 +58,5 @@ export default function middleware(
 }
 
 export const config = {
-  matcher: ['/((?!.+\\.[\\w]+$|_next|monitoring).*)', '/', '/(api|trpc)(.*)'], // Also exclude tunnelRoute used in Sentry from the matcher
+  matcher: ["/((?!.+\\.[\\w]+$|_next|monitoring).*)", "/", "/(api|trpc)(.*)"], // Also exclude tunnelRoute used in Sentry from the matcher
 };

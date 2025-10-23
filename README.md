@@ -100,24 +100,24 @@ Clone this project and use it to create your own SaaS. You can check the live de
 
 **Live demo: [SaaS Boilerplate](https://react-saas.com)**
 
-| Landing Page | User Dashboard |
-| --- | --- |
+| Landing Page                                                                                                                      | User Dashboard                                                                                                                                  |
+| --------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | [![Next.js Boilerplate SaaS Landing Page](public/assets/images/nextjs-boilerplate-saas-landing-page.png)](https://react-saas.com) | [![Next.js Boilerplate SaaS User Dashboard](public/assets/images/nextjs-boilerplate-saas-user-dashboard.png)](https://react-saas.com/dashboard) |
 
-| Team Management | User Profile |
-| --- | --- |
+| Team Management                                                                                                                                                                           | User Profile                                                                                                                                             |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [![Next.js Boilerplate SaaS Team Management](public/assets/images/nextjs-boilerplate-saas-multi-tenancy.png)](https://react-saas.com/dashboard/organization-profile/organization-members) | [![Next.js Boilerplate SaaS User Profile](public/assets/images/nextjs-boilerplate-saas-user-profile.png)](https://react-saas.com/dashboard/user-profile) |
 
-| Sign Up | Sign In |
-| --- | --- |
+| Sign Up                                                                                                                         | Sign In                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | [![Next.js Boilerplate SaaS Sign Up](public/assets/images/nextjs-boilerplate-saas-sign-up.png)](https://react-saas.com/sign-up) | [![Next.js Boilerplate SaaS Sign In](public/assets/images/nextjs-boilerplate-saas-sign-in.png)](https://react-saas.com/sign-in) |
 
-| Landing Page with Dark Mode (Pro Version) | User Dashboard with Dark Mode (Pro Version) |
-| --- | --- |
+| Landing Page with Dark Mode (Pro Version)                                                                                                                              | User Dashboard with Dark Mode (Pro Version)                                                                                                                                                  |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [![Next.js Boilerplate SaaS Landing Page Dark Mode](public/assets/images/nextjs-boilerplate-saas-landing-page-dark-mode.png)](https://pro-demo.nextjs-boilerplate.com) | [![Next.js Boilerplate SaaS User Dashboard Dark Mode](public/assets/images/nextjs-boilerplate-saas-user-dashboard-sidebar-dark-mode.png)](https://pro-demo.nextjs-boilerplate.com/dashboard) |
 
-| User Dashboard with Sidebar (Pro Version) |
-| --- |
+| User Dashboard with Sidebar (Pro Version)                                                                                                                              |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [![Next.js Boilerplate SaaS User Dashboard Sidebar](public/assets/images/nextjs-boilerplate-saas-user-dashboard-sidebar.png)](https://pro-demo.nextjs-boilerplate.com) |
 
 ### Features
@@ -212,35 +212,36 @@ Open http://localhost:3000 with your favorite browser to see your project.
 
 This project offers both a free open-source version and a premium Pro version. Here's a detailed comparison:
 
-| Features | Free Version | Pro Version |
-|---------|:------------:|:-----------:|
-| **Authentication** | ✅ | ✅ |
-| **Social Login (Google, Facebook, GitHub, etc.)** | ✅ | ✅ |
-| **Multi-Factor Auth & User Impersonation** | ✅ | ✅ |
-| **Multi-tenancy & Team Support** | ✅ | ✅ |
-| **Role-based Access Control (RBAC)** | ✅ | ✅ |
-| **Landing Page (Hero, Features, Pricing)** | ✅ | ✅ |
-| **Internationalization (i18n)** | ✅ | ✅ |
-| **Drizzle ORM & Dev Database** | ✅ | ✅ |
-| **GitHub Actions** | ✅ | ✅ |
-| **VSCode Configuration** | ✅ | ✅ |
-| **[Sentry Error Monitoring](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy25q1-nextjs&utm_content=github-banner-nextjsboilerplate-logo)** | ✅ | ✅ |
-| **Shadcn UI** | ✅ | ✅ |
-| **Next.js** | 14 | 15 |
-| **React** | 18 | 19 |
-| **Tailwind CSS** | 3 | 4 |
-| **ESLint** | 8 | 9 |
-| **User Dashboard** | Basic | Extended |
-| **Code Quality Tools** | Basic | Extended |
-| **Testing: Unit, Integration, E2E, Visual** | Basic | Extended |
-| **Stripe Integration** | ❌ | ✅ |
-| **Todo App Example (CRUD)** | ❌ | ✅ |
-| **End-to-End Typesafe APIs (oRPC)** | ❌ | ✅ |
-| **Dark Mode** | ❌ | ✅ |
-| **Latest version** | ❌ | ✅ |
-| **Email support (1 year)** | ❌ | ✅ |
+| Features                                                                                                                                                                                     | Free Version | Pro Version |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------: | :---------: |
+| **Authentication**                                                                                                                                                                           |      ✅      |     ✅      |
+| **Social Login (Google, Facebook, GitHub, etc.)**                                                                                                                                            |      ✅      |     ✅      |
+| **Multi-Factor Auth & User Impersonation**                                                                                                                                                   |      ✅      |     ✅      |
+| **Multi-tenancy & Team Support**                                                                                                                                                             |      ✅      |     ✅      |
+| **Role-based Access Control (RBAC)**                                                                                                                                                         |      ✅      |     ✅      |
+| **Landing Page (Hero, Features, Pricing)**                                                                                                                                                   |      ✅      |     ✅      |
+| **Internationalization (i18n)**                                                                                                                                                              |      ✅      |     ✅      |
+| **Drizzle ORM & Dev Database**                                                                                                                                                               |      ✅      |     ✅      |
+| **GitHub Actions**                                                                                                                                                                           |      ✅      |     ✅      |
+| **VSCode Configuration**                                                                                                                                                                     |      ✅      |     ✅      |
+| **[Sentry Error Monitoring](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy25q1-nextjs&utm_content=github-banner-nextjsboilerplate-logo)** |      ✅      |     ✅      |
+| **Shadcn UI**                                                                                                                                                                                |      ✅      |     ✅      |
+| **Next.js**                                                                                                                                                                                  |      14      |     15      |
+| **React**                                                                                                                                                                                    |      18      |     19      |
+| **Tailwind CSS**                                                                                                                                                                             |      3       |      4      |
+| **ESLint**                                                                                                                                                                                   |      8       |      9      |
+| **User Dashboard**                                                                                                                                                                           |    Basic     |  Extended   |
+| **Code Quality Tools**                                                                                                                                                                       |    Basic     |  Extended   |
+| **Testing: Unit, Integration, E2E, Visual**                                                                                                                                                  |    Basic     |  Extended   |
+| **Stripe Integration**                                                                                                                                                                       |      ❌      |     ✅      |
+| **Todo App Example (CRUD)**                                                                                                                                                                  |      ❌      |     ✅      |
+| **End-to-End Typesafe APIs (oRPC)**                                                                                                                                                          |      ❌      |     ✅      |
+| **Dark Mode**                                                                                                                                                                                |      ❌      |     ✅      |
+| **Latest version**                                                                                                                                                                           |      ❌      |     ✅      |
+| **Email support (1 year)**                                                                                                                                                                   |      ❌      |     ✅      |
 
 **Live Demos:**
+
 - Free Version: [https://react-saas.com](https://react-saas.com)
 - Pro Version: [https://pro-demo.nextjs-boilerplate.com](https://pro-demo.nextjs-boilerplate.com)
 
@@ -402,13 +403,13 @@ In the local environment, visual testing is disabled, and the terminal will disp
 The App Router folder is compatible with the Edge runtime. You can enable it by adding the following lines `src/app/layouts.tsx`:
 
 ```tsx
-export const runtime = 'edge';
+export const runtime = "edge";
 ```
 
 For your information, the database migration is not compatible with the Edge runtime. So, you need to disable the automatic migration in `src/libs/DB.ts`:
 
 ```tsx
-await migrate(db, { migrationsFolder: './migrations' });
+await migrate(db, { migrationsFolder: "./migrations" });
 ```
 
 After disabling it, you are required to run the migration manually with:

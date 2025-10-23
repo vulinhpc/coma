@@ -1,6 +1,11 @@
 {
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
+  "editor.insertFinalNewline": true,
+  "editor.trimAutoWhitespace": true,
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
   "search.exclude": {
     "package-lock.json": true
   },
@@ -21,9 +26,7 @@
   "testing.automaticallyOpenTestResults": "neverOpen", // Don't open the test results automatically
 
   // I18n
-  "i18n-ally.localesPaths": [
-    "src/locales"
-  ],
+  "i18n-ally.localesPaths": ["src/locales"],
   "i18n-ally.keystyle": "nested",
 
   // Disable the default formatter, use ESLint instead
@@ -31,10 +34,7 @@
   "editor.formatOnSave": false,
 
   // Auto fix with ESLint on save
-  "editor.codeActionsOnSave": [
-    "source.addMissingImports",
-    "source.fixAll.eslint"
-  ],
+  "editor.codeActionsOnSave": ["source.addMissingImports", "source.fixAll.eslint"],
 
   // Enable eslint for all supported languages
   "eslint.format.enable": true,

@@ -1,19 +1,19 @@
-import type { PLAN_ID } from '@/utils/AppConfig';
+import type { PLAN_ID } from "@/utils/AppConfig";
 
-import type { EnumValues } from './Enum';
+import type { EnumValues } from "./Enum";
 
 export type PlanId = EnumValues<typeof PLAN_ID>;
 
 export const BILLING_INTERVAL = {
-  MONTH: 'month',
-  YEAR: 'year',
+  MONTH: "month",
+  YEAR: "year",
 } as const;
 
 export type BillingInterval = EnumValues<typeof BILLING_INTERVAL>;
 
 export const SUBSCRIPTION_STATUS = {
-  ACTIVE: 'active',
-  PENDING: 'pending',
+  ACTIVE: "active",
+  PENDING: "pending",
 } as const;
 
 // PricingPlan is currently only used for Pricing section of the landing page.
@@ -45,11 +45,12 @@ export type IStripeSubscription = {
 
 export type PlanDetails =
   | {
-    isPaid: true;
-    plan: PricingPlan;
-    stripeDetails: IStripeSubscription;
-  } | {
-    isPaid: false;
-    plan: PricingPlan;
-    stripeDetails?: undefined;
-  };
+      isPaid: true;
+      plan: PricingPlan;
+      stripeDetails: IStripeSubscription;
+    }
+  | {
+      isPaid: false;
+      plan: PricingPlan;
+      stripeDetails?: undefined;
+    };

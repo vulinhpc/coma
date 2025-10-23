@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const MessageState = (props: {
   icon: React.ReactNode;
@@ -13,9 +13,7 @@ export const MessageState = (props: {
 
     <div className="mt-3 text-center">
       <div className="text-xl font-semibold">{props.title}</div>
-      <div className="mt-1 text-sm font-medium text-muted-foreground">
-        {props.description}
-      </div>
+      <div className="mt-1 text-sm font-medium text-muted-foreground">{props.description}</div>
 
       <div className="mt-5">{props.button}</div>
     </div>

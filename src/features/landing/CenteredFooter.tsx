@@ -1,5 +1,5 @@
-import { useTranslations } from 'next-intl';
-import React from 'react';
+import { useTranslations } from "next-intl";
+import React from "react";
 
 export const CenteredFooter = (props: {
   logo: React.ReactNode;
@@ -8,7 +8,7 @@ export const CenteredFooter = (props: {
   legalLinks: React.ReactNode;
   children: React.ReactNode;
 }) => {
-  const t = useTranslations('Footer');
+  const t = useTranslations("Footer");
 
   return (
     <div className="flex flex-col items-center text-center">
@@ -25,7 +25,7 @@ export const CenteredFooter = (props: {
       <div className="mt-6 flex w-full items-center justify-between gap-y-2 border-t pt-3 text-sm text-muted-foreground max-md:flex-col">
         <div>
           {`© Copyright ${new Date().getFullYear()} ${props.name}. `}
-          {t.rich('designed_by', {
+          {t.rich("designed_by", {
             author: () => (
               <a
                 className="text-blue-500 hover:text-blue-600"

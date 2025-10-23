@@ -1,29 +1,29 @@
-import type { LocalePrefix } from 'node_modules/next-intl/dist/types/src/routing/types';
+import type { LocalePrefix } from "node_modules/next-intl/dist/types/src/routing/types";
 
-import { BILLING_INTERVAL, type PricingPlan } from '@/types/Subscription';
+import { BILLING_INTERVAL, type PricingPlan } from "@/types/Subscription";
 
-const localePrefix: LocalePrefix = 'as-needed';
+const localePrefix: LocalePrefix = "as-needed" as LocalePrefix;
 
 // FIXME: Update this configuration file based on your project information
 export const AppConfig = {
-  name: 'SaaS Template',
+  name: "SaaS Template",
   locales: [
     {
-      id: 'en',
-      name: 'English',
+      id: "en",
+      name: "English",
     },
-    { id: 'fr', name: 'Français' },
+    { id: "fr", name: "Français" },
   ],
-  defaultLocale: 'en',
+  defaultLocale: "en",
   localePrefix,
 };
 
-export const AllLocales = AppConfig.locales.map(locale => locale.id);
+export const AllLocales = AppConfig.locales.map((locale) => locale.id);
 
 export const PLAN_ID = {
-  FREE: 'free',
-  PREMIUM: 'premium',
-  ENTERPRISE: 'enterprise',
+  FREE: "free",
+  PREMIUM: "premium",
+  ENTERPRISE: "enterprise",
 } as const;
 
 export const PricingPlanList: Record<string, PricingPlan> = {
@@ -31,9 +31,9 @@ export const PricingPlanList: Record<string, PricingPlan> = {
     id: PLAN_ID.FREE,
     price: 0,
     interval: BILLING_INTERVAL.MONTH,
-    testPriceId: '',
-    devPriceId: '',
-    prodPriceId: '',
+    testPriceId: "",
+    devPriceId: "",
+    prodPriceId: "",
     features: {
       teamMember: 2,
       website: 2,
@@ -45,10 +45,10 @@ export const PricingPlanList: Record<string, PricingPlan> = {
     id: PLAN_ID.PREMIUM,
     price: 79,
     interval: BILLING_INTERVAL.MONTH,
-    testPriceId: 'price_premium_test', // Use for testing
+    testPriceId: "price_premium_test", // Use for testing
     // FIXME: Update the price ID, you can create it after running `npm run stripe:setup-price`
-    devPriceId: 'price_1PNksvKOp3DEwzQlGOXO7YBK',
-    prodPriceId: '',
+    devPriceId: "price_1PNksvKOp3DEwzQlGOXO7YBK",
+    prodPriceId: "",
     features: {
       teamMember: 5,
       website: 5,
@@ -60,10 +60,10 @@ export const PricingPlanList: Record<string, PricingPlan> = {
     id: PLAN_ID.ENTERPRISE,
     price: 199,
     interval: BILLING_INTERVAL.MONTH,
-    testPriceId: 'price_enterprise_test', // Use for testing
+    testPriceId: "price_enterprise_test", // Use for testing
     // FIXME: Update the price ID, you can create it after running `npm run stripe:setup-price`
-    devPriceId: 'price_1PNksvKOp3DEwzQli9IvXzgb',
-    prodPriceId: 'price_123',
+    devPriceId: "price_1PNksvKOp3DEwzQli9IvXzgb",
+    prodPriceId: "price_123",
     features: {
       teamMember: 100,
       website: 100,

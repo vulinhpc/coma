@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { useLocale } from 'next-intl';
+import { useLocale } from "next-intl";
 
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { usePathname, useRouter } from '@/libs/i18nNavigation';
-import { AppConfig } from '@/utils/AppConfig';
+} from "@/components/ui/dropdown-menu";
+import { usePathname, useRouter } from "@/libs/i18nNavigation";
+import { AppConfig } from "@/utils/AppConfig";
 
 export const LocaleSwitcher = () => {
   const router = useRouter();
@@ -26,7 +26,12 @@ export const LocaleSwitcher = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button className="p-2 focus-visible:ring-offset-0" variant="ghost" size="icon" aria-label="lang-switcher">
+        <Button
+          className="p-2 focus-visible:ring-offset-0"
+          variant="ghost"
+          size="icon"
+          aria-label="lang-switcher"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="size-6 stroke-current stroke-2"
@@ -43,7 +48,7 @@ export const LocaleSwitcher = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent>
         <DropdownMenuRadioGroup value={locale} onValueChange={handleChange}>
-          {AppConfig.locales.map(elt => (
+          {AppConfig.locales.map((elt) => (
             <DropdownMenuRadioItem key={elt.id} value={elt.id}>
               {elt.name}
             </DropdownMenuRadioItem>

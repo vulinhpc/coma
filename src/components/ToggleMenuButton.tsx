@@ -1,6 +1,6 @@
-import { type ForwardedRef, forwardRef } from 'react';
+import { type ForwardedRef, forwardRef } from "react";
 
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 
 /**
  * A toggle button to show/hide component in small screen.
@@ -14,12 +14,7 @@ const ToggleMenuButtonInternal = (
   },
   ref?: ForwardedRef<HTMLButtonElement>,
 ) => (
-  <Button
-    className="p-2 focus-visible:ring-offset-0"
-    variant="ghost"
-    ref={ref}
-    {...props}
-  >
+  <Button className="p-2 focus-visible:ring-offset-0" variant="ghost" ref={ref} {...props}>
     <svg
       className="size-6 stroke-current"
       xmlns="http://www.w3.org/2000/svg"
