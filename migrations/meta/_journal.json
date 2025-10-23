@@ -1,12 +1,12 @@
 {
-  "version": "7",
+  "version": 7,
   "dialect": "postgresql",
   "entries": [
     {
       "idx": 0,
-      "version": "7",
-      "when": 1726784321202,
-      "tag": "0000_init-db",
+      "version": 7,
+      "when": 1732252800000,
+      "tag": "0000_initial_schema",
       "breakpoints": true
     }
   ]
